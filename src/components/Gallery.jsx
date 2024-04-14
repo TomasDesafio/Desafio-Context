@@ -2,6 +2,7 @@
 import React, { useState,useEffect } from 'react';
 import { useMyContext } from '../context/PhotosContext';
 import IconHeart from './IconHeart';
+import Imagen from'./Imagen';
 
 
 const Gallery = () => {
@@ -17,39 +18,21 @@ const Gallery = () => {
       .catch(error => console.error('Error al cargar datos:', error));
   }, [setPhotos]);
 
-  const handleLike = (id) => {
-    //e.preventDefault();
-    const imagenfavorita=photos.find((photo) =>photo.id === id);
-    setPhotosfavoritas([...photosfavoritas, imagenfavorita]);
-    setisFavorite(!isFavorite)
-    
+
+
+
   
-  };
-
-  //console.log(photos)
-
- //const photosnuevas=photos.map((photo)=>photo['estado']='')
- //console.log(photosnuevas)
-
-
 
 
 
 
   return (
     <div className="gallery grid-columns-5 p-3">
-      {photos.map(photo => (
+      {photos.map((photo,index) => (
         <div key={photo.id} className="photo-card">
+          <Imagen  key ={index} photo={photo}/>
           
-          <img src={photo.src.small} alt={photo.alt} />
-          <div className="photo-details">
-            <h3>{photo.alt}</h3>
-            <p>Fotógrafo: {photo.photographer}</p>
-            <button onClick={() => handleLike(photo.id)}> {isFavorite ? <IconHeart filled="red" /> : <IconHeart filled="" />}  </button>
-            
-           
-         
-          </div>
+          
         </div>
       ))}
     </div>
