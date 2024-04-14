@@ -6,7 +6,7 @@ import Imagen from'./Imagen';
 
 
 const Gallery = () => {
-  const { photos, setPhotos,photosfavoritas,setPhotosfavoritas,isFavorite, setisFavorite } = useMyContext();
+  const { photos, setPhotos,photosfavoritas,setPhotosfavorita } = useMyContext();
   
 
   useEffect(() => {

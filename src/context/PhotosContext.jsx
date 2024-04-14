@@ -11,7 +11,7 @@ export const MyContextProvider = ({ children }) => {
   const [isFavorite, setisFavorite] = useState(false);
 
   return (
-    <MyContext.Provider value={{ photos, setPhotos,photosfavoritas,setPhotosfavoritas,isFavorite, setisFavorite }}>
+    <MyContext.Provider value={{ photos, setPhotos,photosfavoritas,setPhotosfavoritas,isFavorite,setisFavorite}}>
       {children}
     </MyContext.Provider>
   );

@@ -4,7 +4,9 @@ import IconHeart from './IconHeart';
 
 
 const ImageCard = ({ photo }) => {
-    const { photos, setPhotos,photosfavoritas,setPhotosfavoritas,isFavorite, setisFavorite } = useMyContext();
+    const { photos, setPhotos,photosfavoritas,setPhotosfavoritas } = useMyContext();
+    const [isFavorite, setisFavorite] = useState(false);
+    
 
     const handleLike = (id) => {
         //e.preventDefault();
@@ -14,6 +16,9 @@ const ImageCard = ({ photo }) => {
         
       
       };
+    
+
+  
     
   
     return (
