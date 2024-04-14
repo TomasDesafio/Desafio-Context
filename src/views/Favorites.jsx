@@ -5,7 +5,7 @@ import IconHeart from '../components/IconHeart';
 
 
 const Favorites = () => {
-  const { photos, setPhotos,photosfavoritas,setPhotosfavoritas } = useMyContext();
+  const { photos, setPhotos,photosfavoritas,setPhotosfavoritas,isFavorite, setisFavorite } = useMyContext();
   
   
   const removephoto = (id) => {
@@ -30,7 +30,7 @@ const Favorites = () => {
           <div className="photo-details">
             <h3>{photo.alt}</h3>
             <p>Fotógrafo: {photo.photographer}</p>
-            <button onClick={() => removephoto(photo.id)}> <IconHeart filled={''} />  </button>
+            <button onClick={() => removephoto(photo.id)}> {isFavorite ? <IconHeart filled="red" /> : <IconHeart filled="" />}  </button>
             
          
           </div>

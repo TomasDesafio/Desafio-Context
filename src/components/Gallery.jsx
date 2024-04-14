@@ -5,8 +5,8 @@ import IconHeart from './IconHeart';
 
 
 const Gallery = () => {
-  const { photos, setPhotos,photosfavoritas,setPhotosfavoritas } = useMyContext();
-  const [Like, setLike] = useState('');
+  const { photos, setPhotos,photosfavoritas,setPhotosfavoritas,isFavorite, setisFavorite } = useMyContext();
+  
 
   useEffect(() => {
     // Aquí puedes cargar los datos del JSON
@@ -21,7 +21,7 @@ const Gallery = () => {
     //e.preventDefault();
     const imagenfavorita=photos.find((photo) =>photo.id === id);
     setPhotosfavoritas([...photosfavoritas, imagenfavorita]);
-    setLike('true')
+    setisFavorite(!isFavorite)
     
   
   };
@@ -45,8 +45,9 @@ const Gallery = () => {
           <div className="photo-details">
             <h3>{photo.alt}</h3>
             <p>Fotógrafo: {photo.photographer}</p>
-            <button onClick={() => handleLike(photo.id)}> <IconHeart filled={(Like==='')? '' : "red"} />  </button>
+            <button onClick={() => handleLike(photo.id)}> {isFavorite ? <IconHeart filled="red" /> : <IconHeart filled="" />}  </button>
             
+           
          
           </div>
         </div>
